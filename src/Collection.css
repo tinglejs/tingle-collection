@@ -1,0 +1,43 @@
+/**
+ * Collection Component Style for tingle
+ * @author gnosaij
+ *
+ * Copyright 2014-2015, Tingle Team, Alinw.
+ * All rights reserved.
+ */
+/**
+ * Grid Component Style for tingle
+ * @author gnosaij
+ *
+ * Copyright 2014-2015, Tingle Team, Alinw.
+ * All rights reserved.
+ */
+.tCollection {
+  border-top: 1px solid #ddd;
+}
+.hairline .tCollection {
+  border-top: 0.5px solid #ccc;
+}
+.tCollection.noLine {
+  border-top: none !important;
+}
+.tCollectionRow {
+  border-bottom: 1px solid #ddd;
+}
+.hairline .tCollectionRow {
+  border-bottom: 0.5px solid #ccc;
+}
+.tCollection.noLine .tCollectionRow {
+  border-bottom: none !important;
+}
+.tCollectionItem + .tCollectionItem {
+  border-left: 1px solid #ddd;
+}
+.hairline .tCollectionItem + .tCollectionItem {
+  border-left: 0.5px solid #ccc;
+}
+.tCollection.noLine .tCollectionItem {
+  border-left: none !important;
+}
+
+/*# sourceMappingURL=Collection.css.map */

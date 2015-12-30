@@ -1,0 +1,45 @@
+/**
+ * Collection Component Style for tingle
+ * @author gnosaij
+ *
+ * Copyright 2014-2015, Tingle Team, Alinw.
+ * All rights reserved.
+ */
+
+// tingle-style's utils
+@require '../node_modules/tingle-style/src/var'
+
+/**
+ * Grid Component Style for tingle
+ * @author gnosaij
+ *
+ * Copyright 2014-2015, Tingle Team, Alinw.
+ * All rights reserved.
+ */
+
+// tingle-style's utils
+@require '../node_modules/tingle-style/src/var'
+
+gray_line = 1px solid #ddd
+gray_hairline = 0.5px solid #ccc
+
+.tCollection
+  border-top gray_line
+  .hairline &
+    border-top gray_hairline
+.tCollection.noLine
+  border-top none !important
+
+.tCollectionRow
+  border-bottom gray_line
+  .hairline &
+    border-bottom gray_hairline
+.tCollection.noLine .tCollectionRow
+  border-bottom none !important
+
+.tCollectionItem + .tCollectionItem
+  border-left gray_line
+.hairline .tCollectionItem + .tCollectionItem
+  border-left gray_hairline
+.tCollection.noLine .tCollectionItem
+  border-left none !important
