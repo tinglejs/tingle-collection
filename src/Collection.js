@@ -69,9 +69,8 @@ class Collection extends React.Component {
   /**
    * 将子元素的索引值根据列数划分成组
    * @returns {Array}
-   * @private
    */
-  getRowsWithIndexes() {
+  cutIndexesIntoRows() {
     var t = this;
     let rowIndexes = [];
     let childrenCount = React.Children.count(t.props.children);
@@ -93,7 +92,7 @@ class Collection extends React.Component {
     // react0.14
     let children = React.Children.toArray(t.props.children);
 
-    let rows = t.getRowsWithIndexes();
+    let rows = t.cutIndexesIntoRows();
 
     return <div className={classnames('tCollection', {
         [t.props.className]: !!t.props.className,
@@ -120,8 +119,11 @@ Collection.defaultProps = {
 // http://facebook.github.io/react/docs/reusable-components.html
 Collection.propTypes = {
   className: React.PropTypes.string,
+  // 列数
   col: React.PropTypes.number,
+  // 是否自适应单元格的高度 使单元格成为正方形
   square: React.PropTypes.bool,
+  // 是否隐藏分割线
   noLine: React.PropTypes.bool
 }
 
