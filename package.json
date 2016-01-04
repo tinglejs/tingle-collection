@@ -1,6 +1,6 @@
 {
   "name": "tingle-collection",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "description": "tingle-collection component for tingle.",
   "repository": "https://github.com/tinglejs/tingle-collection.git",
   "author": "gnosaij",
@@ -12,10 +12,17 @@
   "keywords": [
     "tingle-collection",
     "Collection",
-    ""
+    "react-flexbox",
+    "flexbox",
+    "vbox",
+    "hbox",
+    "box",
+    "vertical-box",
+    "horizontal-box"
   ],
   "dependencies": {
     "classnames": "^2.1.2",
+    "tingle-box": "^1.0.0",
     "tingle-context": "~1.0.0",
     "tingle-style": "~0.3.1"
   },

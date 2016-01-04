@@ -6,6 +6,7 @@
  * All rights reserved.
  */
 const classnames = require('classnames');
+const {VBox} = require('tingle-box');
 
 class Row extends React.Component {
 
@@ -24,9 +25,9 @@ class Row extends React.Component {
 
     while (n-- > 0) {
       ret.push(
-        <div className='tFB1 tCollectionItem'
+        <VBox flex={1} hAlign={t.props.itemHAlign} vAlign={t.props.itemVAlign} className='tCollectionItem'
              style={t.props.square ? {height: '' + 10/t.props.col + 'rem'} : {}}>
-        </div>
+        </VBox>
       );
     }
     return React.Children.toArray(ret);
@@ -39,10 +40,10 @@ class Row extends React.Component {
     return (<div className='tFBH tCollectionRow'>
       {React.Children.toArray(t.props.children.map(function (child) {
         return (
-          <div className='tFB1 tCollectionItem'
+          <VBox flex={1} hAlign={t.props.itemHAlign} vAlign={t.props.itemVAlign} className='tCollectionItem'
                style={t.props.square ? {height: '' + 10/t.props.col + 'rem'} : {}}>
             {child}
-          </div>
+          </VBox>
         );
       }))}
       {t.fillEmptyItem(toFilledItemNumber)}
@@ -57,7 +58,11 @@ Row.defaultProps = {
 
 Row.propTypes = {
   col: React.PropTypes.number,
-  square: React.PropTypes.bool
+  square: React.PropTypes.bool,
+  // 单个格子的水平对其方式
+  itemHAlign: VBox.propTypes.hAlign,
+  // 单个格子的垂直对其方式
+  itemVAlign: VBox.propTypes.vAlign
 }
 
 class Collection extends React.Component {
@@ -93,13 +98,14 @@ class Collection extends React.Component {
     let children = React.Children.toArray(t.props.children);
 
     let rows = t.cutIndexesIntoRows();
+    let {className, noLine, ...rowProps} = t.props;
 
     return <div className={classnames('tCollection', {
-        [t.props.className]: !!t.props.className,
-        noLine: t.props.noLine
+        [className]: !!className,
+        noLine: noLine
     })}>
       {React.Children.toArray(rows.map(function (indexes) {
-        return <Row col={t.props.col} square={t.props.square}>
+        return <Row {...rowProps}>
           {indexes.map(function (index) {
             return children[index];
           })}
@@ -113,7 +119,9 @@ Collection.defaultProps = {
   className: '',
   col: 4,
   square: false,
-  noLine: false
+  noLine: false,
+  itemHAlign: 'center',
+  itemVAlign: 'center'
 }
 
 // http://facebook.github.io/react/docs/reusable-components.html
@@ -124,7 +132,11 @@ Collection.propTypes = {
   // 是否自适应单元格的高度 使单元格成为正方形
   square: React.PropTypes.bool,
   // 是否隐藏分割线
-  noLine: React.PropTypes.bool
+  noLine: React.PropTypes.bool,
+  // 单个格子的水平对其方式
+  itemHAlign: VBox.propTypes.hAlign,
+  // 单个格子的垂直对其方式
+  itemVAlign: VBox.propTypes.vAlign
 }
 
 Collection.displayName = 'Collection';

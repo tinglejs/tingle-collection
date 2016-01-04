@@ -31,18 +31,18 @@ class Demo extends React.Component {
     let t = this;
     return (
       <div>
-        <div>单元格固定高度</div>
-        <Collection col={4} className="tBCf tMB30">
-          {t.state.list.map((item, index) => {
-            return <div key={index} onClick={t.add.bind(t)} className="demo">{t.state.n}</div>;
-          })}
+        <div className="tBCe tFAC tLH44">单元格固定高度</div>
+        <Collection col={4} className="tBCf">
+          {React.Children.toArray(t.state.list.map((item, index) => {
+            return <div onClick={t.add.bind(t)} className="demo">{t.state.n}</div>;
+          }))}
           <div className="demo" onClick={t.add.bind(t)}>{t.state.n}</div>
         </Collection>
-        <div>单元格为正方形</div>
-        <Collection col={5} className="tBCf tMB30" square={true}>
+        <div className="tBCe tFAC tLH44">单元格为正方形</div>
+        <Collection col={5} className="tBCf" square={true}>
           <div className="demo" onClick={t.add.bind(t)}>{t.state.n}</div>
         </Collection>
-        <div>无边线</div>
+        <div className="tBCe tFAC tLH44">元格无边线</div>
         <Collection col={5} className="tBCf tMB30" square={true} noLine={true}>
           <div className="demo2" style={{background:'#fed678'}}></div>
           <div className="demo2" style={{background:'#7bc380'}}></div>
